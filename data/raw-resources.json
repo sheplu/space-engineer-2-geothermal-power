@@ -1,0 +1,51 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-02",
+  "game": {
+    "name": "Space Engineers 2",
+    "stage": "Early Access",
+    "dataAsOf": "2026-05-02"
+  },
+  "mod": {
+    "name": "Geothermal Power",
+    "version": "0.1.0",
+    "baseGameDataVersion": "1.1.0"
+  },
+  "sources": [],
+  "notes": "Obsidian is volcanic glass formed when felsic lava cools rapidly enough to bypass crystallisation — naturally abundant on the flanks of active volcanoes and ubiquitous as a byproduct of the Magma Tap 5 m (which force-cools lava against its turbine wall). Biomes first-pass: any volcanic planet/biome the game exposes. Forward-looking: obsidian is a plausible aggregate for Stone & Concrete's Cement chain (silica-rich) and a plausible raw feedstock for a future Glass mod. v0.1 is declarative-only on both fronts — no sibling mod currently references obsidian.",
+  "resources": [
+    {
+      "id": "obsidian",
+      "displayName": "Obsidian",
+      "type": "material",
+      "mass_kg": 3,
+      "volume_liters": null,
+      "stackable": true,
+      "divisible": true,
+      "description": "Dense volcanic glass. Mineable directly from obsidian deposits near volcanic flanks, or harvested automatically as a byproduct of the Magma Tap 5 m. Not refinable on its own in v0.1 — exists as a forward-hook material for Stone & Concrete (silica-rich aggregate candidate) and a hypothetical future Glass mod.",
+      "gameStatus": "active",
+      "locations": {
+        "planets": [
+          {
+            "name": "Kemik",
+            "biomes": ["Volcanic Flank", "Lava Field"]
+          },
+          {
+            "name": "Verdure",
+            "biomes": ["Volcanic Island"]
+          }
+        ],
+        "asteroidFields": []
+      },
+      "refinableInto": [],
+      "wiki": "https://github.com/sheplu/space-engineer-2-geothermal-power",
+      "dataGaps": [
+        "volume_liters",
+        "biome-placement-first-pass",
+        "refinableInto-empty-until-glass-mod-ships",
+        "usedIn-as-cement-aggregate-is-declarative-only",
+        "wiki-not-yet-authored"
+      ]
+    }
+  ]
+}

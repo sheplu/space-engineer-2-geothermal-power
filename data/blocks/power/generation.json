@@ -1,0 +1,147 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-02",
+  "game": {
+    "name": "Space Engineers 2",
+    "stage": "Early Access",
+    "dataAsOf": "2026-05-02"
+  },
+  "mod": {
+    "name": "Geothermal Power",
+    "version": "0.1.0",
+    "baseGameDataVersion": "1.1.0"
+  },
+  "sources": [],
+  "notes": "Three tiers of renewable power generation driven by planetary heat, organised around how deep the player is willing to drill. Tier 1 — Geothermal Well 2.5 m (~12 kW): shallow well, ambient subsurface heat, water working fluid, placeable on any planetary surface. Tier 2 — Deep Borehole Geothermal 5 m (~60 kW): Enhanced Geothermal System analogue (hot-dry-rock, 3-5 km bore), still placeable on any planetary surface, still water-driven but at a much higher circulation rate to account for deep-well losses; no biome lock, which is the key win over the Magma Tap for players on non-volcanic worlds. Tier 3 — Magma Tap 5 m (~200 kW): direct lava tap, locked to volcanic biomes, produces obsidian as a byproduct of force-cooling lava against its turbine wall. All three tiers use `fuel.consumesId: \"water\"` for the Geothermal Well and Deep Borehole (declarative hook against base-game's planned Water fluid — non-operational until VS3 ships); the Magma Tap has no fuel input since lava is environmental. Power numbers are first-pass — `dataGaps` flags the calibration across all three. BuildComponents for the Magma Tap include `composite_plastic` from Chemistry & Plastics for heat-resistant composite panels (only the Magma Tap crosses mod boundaries — the Deep Borehole deliberately stays within base-game materials to reinforce composite-plastic-means-lava-rated).",
+  "resources": [
+    {
+      "id": "geothermal_well_2_5_m",
+      "displayName": "Geothermal Well 2.5 m",
+      "type": "block",
+      "subcategory": "power",
+      "powerRole": "generator",
+      "size_m": 2.5,
+      "mass_kg": 2200,
+      "health": 1800,
+      "pcu": 60,
+      "snapSize": 10,
+      "description": "Low-enthalpy geothermal generator. Circulates water as a working fluid through a shallow borehole, extracting ambient subsurface heat to drive a turbine. Placeable on any planetary surface with sufficient crust depth (most biomes qualify; deep-ocean floors do not). Output is modest (~12 kW) but requires only a trickle of make-up water to replace evaporative losses — the steady-state fuel cost is much lower than Coal Power's Combustion Generator. Non-operational until VS3 ships Water as an active fluid; until then the block can be built but will sit idle.",
+      "gameStatus": "active",
+      "buildComponents": [
+        { "id": "steel_plate", "qty": 25 },
+        { "id": "steel_tube", "qty": 12 },
+        { "id": "pressure_pipe", "qty": 6 },
+        { "id": "turbine_blades", "qty": 4 },
+        { "id": "motor", "qty": 2 },
+        { "id": "electronic_parts", "qty": 4 },
+        { "id": "wire", "qty": 6 }
+      ],
+      "power": {
+        "maxOutput": 12000,
+        "unit": "W",
+        "unitAsPublished": "W"
+      },
+      "fuel": {
+        "consumesId": "water",
+        "rate": 0.01
+      },
+      "inventory": null,
+      "unlock": "Verdure sector, 30% contract progress",
+      "wiki": "https://github.com/sheplu/space-engineer-2-geothermal-power",
+      "dataGaps": [
+        "fuel.rate-units-unconfirmed-assumed-units-per-second",
+        "power-calibration-first-pass",
+        "non-operational-until-vs3-water-ships",
+        "wiki-not-yet-authored"
+      ]
+    },
+    {
+      "id": "deep_borehole_geothermal_5_m",
+      "displayName": "Deep Borehole Geothermal 5 m",
+      "type": "block",
+      "subcategory": "power",
+      "powerRole": "generator",
+      "size_m": 5,
+      "mass_kg": 5400,
+      "health": 4200,
+      "pcu": 120,
+      "snapSize": 25,
+      "description": "Mid-tier geothermal generator modeled on real-world Enhanced Geothermal Systems (hot-dry-rock / EGS). Drills a 3-5 km bore into deep basement rock, injects water under pressure, and flash-evaporates the returning hot water to drive a turbine. Placeable on any planetary surface — the whole point of drilling deep is that you don't need a volcanic biome; naturally hot rock exists under every crust. Output (~60 kW) lands cleanly between Coal Power's Combustion Generator and the base-game Reactor 7.5 m. Circulation losses at depth are much higher than a shallow well, so water consumption is ~3× the Geothermal Well 2.5 m despite comparable actual evaporation — the fluid cost is nontrivial but the geography is unconstrained. Non-operational until VS3 ships Water as an active fluid.",
+      "gameStatus": "active",
+      "buildComponents": [
+        { "id": "steel_plate", "qty": 40 },
+        { "id": "heavy_duty_plate", "qty": 15 },
+        { "id": "stainless_steel", "qty": 10 },
+        { "id": "pressure_pipe", "qty": 14 },
+        { "id": "turbine_blades", "qty": 8 },
+        { "id": "motor", "qty": 3 },
+        { "id": "electronic_parts", "qty": 6 },
+        { "id": "wire", "qty": 10 }
+      ],
+      "power": {
+        "maxOutput": 60000,
+        "unit": "W",
+        "unitAsPublished": "W"
+      },
+      "fuel": {
+        "consumesId": "water",
+        "rate": 0.03
+      },
+      "inventory": null,
+      "unlock": "Byblos sector, 60% contract progress",
+      "wiki": "https://github.com/sheplu/space-engineer-2-geothermal-power",
+      "dataGaps": [
+        "fuel.rate-units-unconfirmed-assumed-units-per-second",
+        "power-calibration-first-pass",
+        "non-operational-until-vs3-water-ships",
+        "wiki-not-yet-authored"
+      ]
+    },
+    {
+      "id": "magma_tap_5_m",
+      "displayName": "Magma Tap 5 m",
+      "type": "block",
+      "subcategory": "power",
+      "powerRole": "generator",
+      "size_m": 5,
+      "mass_kg": 12000,
+      "health": 9000,
+      "pcu": 200,
+      "snapSize": 25,
+      "description": "High-enthalpy geothermal generator that taps lava directly through a refractory bore. Must be placed over a lava pool in a volcanic biome; the game blocks placement elsewhere. Extracts heat by routing lava across a ceramic-and-composite turbine wall — the force-cooled rind flakes off as obsidian, captured as an inventoried byproduct. Output (~200 kW) exceeds the base-game Reactor 7.5 m while consuming no fabricated fuel, but the geographic lock makes it situational rather than universal. Requires composite plastic panels (from Chemistry & Plastics) for the heat-shield layer — the base-game has no material hot-rated for sustained lava contact on its own.",
+      "gameStatus": "active",
+      "buildComponents": [
+        { "id": "heavy_duty_plate", "qty": 30 },
+        { "id": "stainless_steel", "qty": 20 },
+        { "id": "composite_plastic", "qty": 15 },
+        { "id": "turbine_blades", "qty": 12 },
+        { "id": "pressure_pipe", "qty": 10 },
+        { "id": "motor", "qty": 4 },
+        { "id": "electronic_parts", "qty": 8 },
+        { "id": "wire", "qty": 12 }
+      ],
+      "power": {
+        "maxOutput": 200000,
+        "unit": "W",
+        "unitAsPublished": "W"
+      },
+      "production": {
+        "producesIds": ["obsidian"]
+      },
+      "inventory": {
+        "maxMass_kg": 8000
+      },
+      "placement": {
+        "requires": ["volcanic biome", "lava"]
+      },
+      "unlock": "Kemik sector, 80% contract progress",
+      "wiki": "https://github.com/sheplu/space-engineer-2-geothermal-power",
+      "dataGaps": [
+        "power-calibration-first-pass",
+        "obsidian-production-rate-not-expressed-in-schema",
+        "placement-enforcement-is-free-form-not-yet-a-schema-enum",
+        "wiki-not-yet-authored"
+      ]
+    }
+  ]
+}
