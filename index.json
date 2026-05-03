@@ -1,0 +1,44 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-02",
+  "game": {
+    "name": "Space Engineers 2",
+    "stage": "Early Access",
+    "dataAsOf": "2026-05-02"
+  },
+  "mod": {
+    "name": "Geothermal Power",
+    "version": "0.1.0"
+  },
+  "notes": "Machine-readable index of every dataset in this mod. Three power-generation tiers organised by drilling depth: Geothermal Well 2.5 m (~12 kW, shallow, water-driven, any biome), Deep Borehole Geothermal 5 m (~60 kW, EGS-style hot-dry-rock, water-driven, any biome — the mid-tier option for players without access to volcanic biomes), and Magma Tap 5 m (~200 kW, volcanic-biome-locked, produces obsidian as byproduct). Introduces lava (new fluid, location-bound in v0.1 — recorded as a fluid record so pumpability can be added later without migration) and obsidian (new raw material, forward-hooks Stone & Concrete's Cement and a hypothetical future Glass mod). SECOND MOD WITH HARD CROSS-MOD ID REFERENCES (after Chemistry & Plastics): the Magma Tap's buildComponents include `composite_plastic` from Chemistry & Plastics for heat-resistant composite casings — the validator walks the Chemistry & Plastics repo via CHEMISTRY_PLASTICS_REPO env var with the same graceful-skip pattern. The Deep Borehole deliberately uses only base-game materials to keep composite_plastic as the signal that a block is rated for lava contact. NEW PRECEDENT FOR THE VALIDATOR: also loads base-game fluids.json + gases.json into the known-ids set so that fuel.consumesId can reference `water` (previous mod validators didn't need to because no mod yet had declared a base-game fluid as a fuel).",
+  "totalEntries": 5,
+  "datasets": [
+    {
+      "id": "raw-resources",
+      "path": "data/raw-resources.json",
+      "category": "resources",
+      "subcategory": "raw",
+      "description": "Obsidian — new volcanic-glass raw material produced by the Magma Tap 5 m and found naturally in volcanic biomes.",
+      "version": "0.1.0",
+      "entryCount": 1
+    },
+    {
+      "id": "fluids",
+      "path": "data/fluids.json",
+      "category": "resources",
+      "subcategory": "fluids",
+      "description": "Lava — new environmental fluid. v0.1 is location-bound (consumed in place by the Magma Tap, not routed through conveyors); the record is shaped as a fluid so pumpability can be enabled later without a schema migration.",
+      "version": "0.1.0",
+      "entryCount": 1
+    },
+    {
+      "id": "blocks-power-generation",
+      "path": "data/blocks/power/generation.json",
+      "category": "blocks",
+      "subcategory": "power/generation",
+      "description": "Three power-generation tiers: Geothermal Well 2.5 m (shallow, ~12 kW, any biome), Deep Borehole Geothermal 5 m (EGS-style, ~60 kW, any biome), and Magma Tap 5 m (volcanic-biome-locked, ~200 kW, obsidian byproduct).",
+      "version": "0.1.0",
+      "entryCount": 3
+    }
+  ]
+}

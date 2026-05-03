@@ -1,0 +1,18 @@
+{
+  "name": "space-engineer-2-geothermal-power",
+  "version": "0.1.0",
+  "description": "Geothermal Power — a Space Engineers 2 mod dataset adding a three-tier geothermal chain organised by drilling depth: Geothermal Well 2.5 m (shallow, low-enthalpy, water-driven), Deep Borehole Geothermal 5 m (EGS-style hot-dry-rock, water-driven, biome-agnostic mid-tier), and Magma Tap 5 m (direct lava tap, locked to volcanic biomes, produces obsidian as byproduct). Also introduces lava as a new fluid (location-bound in v0.1, pumpability deferred) and obsidian as a new raw material (forward-hooks Stone & Concrete's Cement chain and a future Glass mod).",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "check": "npm run validate"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

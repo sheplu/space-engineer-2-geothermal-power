@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-02",
+  "game": {
+    "name": "Space Engineers 2",
+    "stage": "Early Access",
+    "dataAsOf": "2026-05-02"
+  },
+  "mod": {
+    "name": "Geothermal Power",
+    "version": "0.1.0",
+    "baseGameDataVersion": "1.1.0"
+  },
+  "sources": [],
+  "notes": "Lava is introduced as a new environmental fluid. In v0.1 it is LOCATION-BOUND — the Magma Tap 5 m must be placed directly over a lava pool and consumes the lava in-situ; the game's fluid pipes do not route lava. The record is nevertheless shaped as a full `fluid` record (mirroring base-game Water) so that pumpability can be enabled in a future revision without migrating data or adding a new resource kind. Mass/volume/stack properties are null for now — same stance as base-game Water, which has not published infobox values either. `producedBy` is empty (lava is environmental, not crafted); `consumedBy` lists only the Magma Tap; `storedIn` is empty (no lava tank block exists or is planned). Biome placement is first-pass, pending official volcanic-biome specification.",
+  "resources": [
+    {
+      "id": "lava",
+      "displayName": "Lava",
+      "type": "fluid",
+      "mass_kg": null,
+      "volume_liters": null,
+      "stackable": null,
+      "divisible": null,
+      "description": "Molten silicate rock occurring naturally on volcanic worlds. In v0.1 lava is location-bound: the Magma Tap 5 m must be sited directly over a lava pool and consumes the lava in-place at extremely high enthalpy. Lava is NOT routable through conveyors or fluid pipes in v0.1 — the record is kept as a fluid so a future revision can enable pumpability (via a dedicated Lava Pipe block, say) without a data migration. Direct touch contact is lethal to characters and cosmetically destructive to most blocks; only blocks rated for lava contact (currently only the Magma Tap) survive prolonged exposure.",
+      "gameStatus": "active",
+      "producedBy": [],
+      "consumedBy": ["magma_tap_5_m"],
+      "storedIn": [],
+      "locations": {
+        "planets": [
+          {
+            "name": "Kemik",
+            "biomes": ["Volcanic Flank", "Lava Field", "Underground Layer 3"]
+          },
+          {
+            "name": "Verdure",
+            "biomes": ["Volcanic Island"]
+          }
+        ],
+        "asteroidFields": []
+      },
+      "wiki": "https://github.com/sheplu/space-engineer-2-geothermal-power",
+      "dataGaps": [
+        "mass_kg",
+        "volume_liters",
+        "stackable",
+        "divisible",
+        "biome-placement-first-pass",
+        "pumpability-deferred-to-future-revision",
+        "damage-model-not-expressed-in-schema",
+        "wiki-not-yet-authored"
+      ]
+    }
+  ]
+}
